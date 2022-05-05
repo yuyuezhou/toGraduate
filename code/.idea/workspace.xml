@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="初步测试了snowNLP的基本用法">
+    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="规范了命名">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordCloud/wordCloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordCloud/wordCloud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordFrequence/wordfreq.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordFrequence/wordfreq.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651758402858</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="规范了命名">
+      <created>1651758596480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651758596480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +168,7 @@
     <MESSAGE value="修订了词频统计wordfreq文件的位置" />
     <MESSAGE value="增加了wordCloud文件夹，在其中完成了词云显示" />
     <MESSAGE value="初步测试了snowNLP的基本用法" />
-    <option name="LAST_COMMIT_MESSAGE" value="初步测试了snowNLP的基本用法" />
+    <MESSAGE value="规范了命名" />
+    <option name="LAST_COMMIT_MESSAGE" value="规范了命名" />
   </component>
 </project>
