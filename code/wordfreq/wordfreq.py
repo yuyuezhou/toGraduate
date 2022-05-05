@@ -7,10 +7,10 @@ import pandas as pd
 # Pandas 可以从各种文件格式比如 CSV、JSON、SQL、Microsoft Excel 导入数据。
 # Pandas 可以对各种数据进行运算操作，比如归并、再成形、选择，还有数据清洗和数据加工特征。
 
-def get_stop_dict(file):  #获取要忽略的词汇的列表（词典）
-    content = open(file,encoding="utf-8")
+def get_stop_dict(stop_file):  #获取要忽略的词汇的列表（词典）
+    content = open(stop_file,encoding="utf-8")
     word_list = []
-    for c in content:
+    for c in content:#此时的c是content的某一行 即按行读取
         c = re.sub('\n|\r','',c) #实现正则的替换 -->此处操作意为去除换行及回车符
         # re.sub(pattern, repl, string, count=0, flags=0)
         # re.sub通过正则表达式，实现比普通字符串的replace更加强大的替换功能，即：
@@ -18,8 +18,9 @@ def get_stop_dict(file):  #获取要忽略的词汇的列表（词典）
         word_list.append(c)
     return word_list
 
-file_path = input("请输入当前文件夹路径:")
-#D:\code\NLP\wordfreq
+file_path = r"D:\MyRepository\toGraduate\code\wordfreq" #开头加r是为了防止报错，具体原因可去掉r后运行，将报错信息百度
+#file_path = input("请输入当前文件夹路径:")
+#D:\MyRepository\toGraduate\code\NLP\wordfreq
 os.chdir(file_path)
 #os.chdir() 方法用于改变当前工作目录到指定的路径。
 #后续对文件的搜索、调用、存储都是在此路径下进行
@@ -29,17 +30,19 @@ stop_file = "stopwordlist.txt"#含有需忽略的词汇文本
 user_file = "add_word_list.txt"#切割限制及词性读取
 
 stop_words = get_stop_dict(stop_file)#将含有需忽略的词汇文本正则处理后变为列表形式
-file_name = input("请输入文件名字:")
+#print(stop_words)
+#file_name = input("请输入文件名字:")
+file_name = "1-100.txt"
 text = open(file_name,encoding="utf-8").read()#读取待分析文本
 jieba.load_userdict(user_file)#jieba加载自定义词库 自动搜索至指定路径
 #每行的含义是 词 词频 词性,
-text_lines  = text.split('\n')#逐行分析
+text_lines  = text.split('\n')#列表，每个元素是源文件中的一行
 
 flag_list = ['vn','v','a','nz','n']#a,形容词，v,形容词 # 'n','nz','vn','v','a'
 counts={}
 
-for line in text_lines:
-    line_seg = psg.lcut(line)#全称posseg 对文本切片分词并进行词性标注 返回列表
+for line in text_lines:#实现按行分析
+    line_seg = psg.lcut(line)#全称posseg 对本行文本进行切片分词、词性标注 返回列表
     #print(line_seg)
     for word_flag in line_seg:
         word = re.sub("[^\u4e00-\u9fa5]","",word_flag.word)
@@ -55,5 +58,5 @@ word_freq = word_freq.sort_values(by='freq',ascending=False)
 #设置排序 by指定根据哪一列数据进行排序，ascending=False指定降序排序
 word_freq.to_excel("word_freq.xlsx",index=False)
 #导出至excel index若为true则在excel中显示对应数据在原二维数组中的下标位置索引
-
+#tt
 print("done!")
