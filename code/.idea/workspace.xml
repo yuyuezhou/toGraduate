@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="修订了词频统计wordfreq文件的位置">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordfreq/word_freq.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/wordfreq/word_freq.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordfreq/wordfreq.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordfreq/wordfreq.py" afterDir="false" />
-    </list>
+    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="增加了wordCloud文件夹，在其中完成了词云显示" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651729157434</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="增加了wordCloud文件夹，在其中完成了词云显示">
+      <created>1651741213145</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651741213145</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +119,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修订了词频统计wordfreq文件的位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="增加了wordCloud文件夹，在其中完成了词云显示" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了wordCloud文件夹，在其中完成了词云显示" />
   </component>
 </project>
