@@ -1,0 +1,29 @@
+[1].张紫琼,叶强,李一军.互联网商品评论情感分析研究综述[J].管理科学学报,2010,13(06):84-96.
+[2].张美颀.基于电商产品评论数据的情感分析[J].电子技术与软件工程,2020(11):186-187.
+[3].陈思含,张云秋,李博诚.基于LDA模型的健康医疗可穿戴设备评论情感分析[J].中华医学图书情报杂志,2020,29(12):41-47.
+[4].曾小芹,余宏.基于Python的商品评论文本情感分析[J].电脑知识与技术,2020,16(08):181-183.DOI:10.14004/j.cnki.ckt.2020.0941.
+[5].崔宁,赵宗良,吴瑞雪.基于LDA主题模型和偏序集的在线商品评论研究[J].情报探索,2021(12):71-76.
+[6].宋晓晴,孙习祥.消费者在线评论采纳研究综述[J].现代情报,2015,35(01):164-169.
+[7].郭小磊.医药商品评论的情感分析[J].智能计算机与应用,2021,11(11):128-130.
+[8].Jingfang Liu;Yingyi Zhou;Xiaoyan Jiang;Wei Zhang,Consumers' satisfaction factors mining and sentiment analysis of B2C online pharmacy reviews,2020,PP 194-194
+[9].Ian Sutherland,Youngseok Sim,Seul Ki Lee,Jaemun Byun,Kiattipoom Kiatkawsin. Topic Modeling of Online Accommodation Reviews via Latent Dirichlet Allocation[J]. Sustainability,2020,12(5).
+[10].Tang Ziyan,Yuan Wen. Marketing Improvement of Chinese Original Picture Books From Dissatisfaction Evaluation - Text Mining Based on LDA Model[J]. SHS Web of Conferences,2021,123.
+
+
+
+
+[1].张晨逸, 孙建伶, 丁轶群,. 基于MB-LDA模型的微博主题挖掘. 计算机研究与发展,２０１1，４８（１０）：１７９５－１８０２.
+[2].李洋, 孙宇晴, 景维鹏. 文本立场检测综述. 计算机研究与发展, 2021, 58(11): 2538-2557.
+[3].李金鹏, 张闯, 陈小军, 胡玥, 廖鹏程. 自动文本摘要研究综述. 计算机研究与发展, 2021, 58(1): 1-21.
+[4].赵妍妍,秦 兵,刘 挺.文本情感分析.软件学报,2010,21(8):1834-1848
+//[1]崔宁,赵宗良,吴瑞雪.基于LDA主题模型和偏序集的在线商品评论研究[J].情报探索,2021(12):71-76.
+//[1]宋晓晴,孙习祥.消费者在线评论采纳研究综述[J].现代情报,2015,35(01):164-169.
+//[7].Jingfang Liu;Yingyi Zhou;Xiaoyan Jiang;Wei Zhang,Consumers' satisfaction factors mining and sentiment analysis of B2C online pharmacy reviews,2020,PP 194-194
+//[1]郭小磊.医药商品评论的情感分析[J].智能计算机与应用,2021,11(11):128-130.
+//[1]曾小芹,余宏.基于Python的商品评论文本情感分析[J].电脑知识与技术,2020,16(08):181-183.DOI:10.14004/j.cnki.ckt.2020.0941.
+//[1]陈思含,张云秋,李博诚.基于LDA模型的健康医疗可穿戴设备评论情感分析[J].中华医学图书情报杂志,2020,29(12):41-47.
+//[1]张紫琼,叶强,李一军.互联网商品评论情感分析研究综述[J].管理科学学报,2010,13(06):84-96.
+//[1]张美颀.基于电商产品评论数据的情感分析[J].电子技术与软件工程,2020(11):186-187.
+[1]Ziyan Tang,Wen Yuan. Marketing Improvement of Chinese Original Picture Books From Dissatisfaction Evaluation-Text Mining Based on LDA Model[A]. 科学与工程协会.第四届社会科学、公共卫生和教育国际会议论文集[C].科学与工程协会:武汉金钥匙会务服务有限公司,2021:8.DOI:10.26914/c.cnkihy.2021.056142.
+//[1]Ian Sutherland,Youngseok Sim,Seul Ki Lee,Jaemun Byun,Kiattipoom Kiatkawsin. Topic Modeling of Online Accommodation Reviews via Latent Dirichlet Allocation[J]. Sustainability,2020,12(5).
+[1]Yue Guo,Stuart J. Barnes,Qiong Jia. Mining meaning from online ratings and reviews: Tourist satisfactionÂ analysis using latent dirichletÂ allocation[J]. Tourism Management,2017,59.

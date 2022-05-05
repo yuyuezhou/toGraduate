@@ -1,0 +1,2 @@
+wordfreq、worefreq.py：中文文本词频分析
+LDA代码、lda：LDA主题模型
