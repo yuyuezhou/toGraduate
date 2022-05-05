@@ -58,5 +58,22 @@ word_freq = word_freq.sort_values(by='freq',ascending=False)
 #设置排序 by指定根据哪一列数据进行排序，ascending=False指定降序排序
 word_freq.to_excel("word_freq.xlsx",index=False)
 #导出至excel index若为true则在excel中显示对应数据在原二维数组中的下标位置索引
-#tt
+
 print("done!")
+
+import wordcloud
+import matplotlib.pyplot as plt
+from PIL import Image
+import numpy as np
+
+
+backgroud_Image=np.array(Image.open(r'C:\Users\Yyz\Desktop\wordcloud.png'))
+    #plt.imread(r'C:\Users\Yyz\Desktop\wordcloud.png')
+word_cloud = wordcloud.WordCloud(font_path="STZHONGS.ttf",
+                      max_words=100,
+                      background_color='white',
+                      mask=backgroud_Image)
+my_wordcloud = word_cloud.fit_words(word_freq)
+plt.imshow(my_wordcloud)
+plt.axis('off')
+plt.show()
