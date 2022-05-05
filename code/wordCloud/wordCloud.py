@@ -5,7 +5,7 @@ from PIL import Image,ImageSequence
 import numpy as np
 from wordcloud import ImageColorGenerator,WordCloud
 
-os.chdir(r"D:\MyRepository\toGraduate\code\wordfreq")
+os.chdir(r"D:\MyRepository\toGraduate\code\wordFrequence")
 wordfreq = pd.read_excel("word_freq.xlsx")
 os.chdir(r"D:\MyRepository\toGraduate\code\wordCloud")
 font_path=r'c:\\windows\\Fonts\\simhei.ttf' #字体路径

@@ -18,7 +18,7 @@ def get_stop_dict(stop_file):  #获取要忽略的词汇的列表（词典）
         word_list.append(c)
     return word_list
 
-file_path = r"D:\MyRepository\toGraduate\code\wordfreq" #开头加r是为了防止报错，具体原因可去掉r后运行，将报错信息百度
+file_path = r"D:\MyRepository\toGraduate\code\wordFrequence" #开头加r是为了防止报错，具体原因可去掉r后运行，将报错信息百度
 #file_path = input("请输入当前文件夹路径:")
 #D:\MyRepository\toGraduate\code\NLP\wordfreq
 os.chdir(file_path)
