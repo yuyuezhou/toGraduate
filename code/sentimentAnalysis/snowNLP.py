@@ -1,4 +1,11 @@
+'''
+Yyz:此模块用于实现对文本的情感分析
+'''
+import time
+import re
 from snownlp import SnowNLP
+import pandas as pd
+import os
 """
 snownlp分析原理（个人总结，其中的贝叶斯原理及最终赋值方法还需进一步查资料）：
 1.读取已经分好类的neg.txt和pos.txt 
@@ -17,33 +24,49 @@ snownlp分析原理（个人总结，其中的贝叶斯原理及最终赋值方�
     如对于“一般般”,p("一般般"|pos) < p("一般般”|neg) 故认为该词属于neg类别 赋值0 (pos则为1）
     实际情况下，并不是只有0、1之分，而是会返回0-1中的某个数，越接近0负面性越强，越接近1则认为正面性越强
 """
-import time
-text_path = r"D:\MyRepository\toGraduate\code\wordFrequence\1-100.txt"
-text = open(text_path,encoding='utf-8')
-line = text.readlines()
-pos=0
-neg=0
-for i in line:
-    s = SnowNLP(i)#用jieba.lcut替换了seg.seg
-    if s.sentiments>=0.5:
-        pos+=1
-    else:neg+=1
-    #print("\r已经运行了"+str(time.perf_counter())+"秒",end="",flush=True)#覆盖输出
-    print("\r正在运行...已经运行了%.1f" %time.perf_counter() + "秒", end="", flush=True)  # 覆盖输出
-    print("\n中文分词:\n", s.words)
-    print("\n输出关键（中心）句:\n", s.summary(1))
-    #print("\r"+"information", end='',flush="True")  ‘\r’转义字符是将光标移到一行的开始,所以\r之后的内容会覆盖掉上次打印的内容
-print("\n总数："+str(pos+neg))
-print("积极："+str(pos))
-print("消极："+str(neg))
-#自带分词分析结果：pos:1562 neg:289 total:1851 整个平均用时：15s
-#换用jieba.lcut分词结果： pos:1511 neg:340 total:1851 整个平均用时：4s
 
-# print("1、中文分词:\n",s.words)
-# print("2、词性标注:\n",s.tags)
-# print("4、转换拼音:\n",s.pinyin)
-# print("5、输出前4个关键词:\n",s.keywords(4))
-# print("6、输出关键（中心）句:\n",s.summary(1))
-# print("7.1、输出tf:\n",s.tf)
-# print("7.2、输出idf:\n",s.idf)
+def sentimentAnalysis(data_cutted=""):
+    text_path = r"D:\MyRepository\toGraduate\code\wordFrequence\1-100.txt"
+    text = open(text_path, encoding='utf-8')
+    line = text.readlines()
+    pos = 0
+    neg = 0
+    pos_list = []
+    neg_list = []
+    for i in line:
+        s = SnowNLP(i)  # 用jieba.lcut替换了seg.seg
+        if s.sentiments >= 0.5:
+            pos += 1
+            pos_list.append(re.sub("\n |\t", "", i))
+        else:
+            neg += 1
+            # neg_list.append(re.sub("[^\u4e00-\u9fa5]", "", i))
+            neg_list.append(re.sub("\n|\t", "", i))
+        # print("\r已经运行了"+str(time.perf_counter())+"秒",end="",flush=True)#覆盖输出
+        print("\r正在运行...已经运行了%.1f" % time.perf_counter() + "秒", end="", flush=True)  # 覆盖输出
+        # print("\r"+"information", end='',flush="True")  ‘\r’转义字符是将光标移到一行的开始,所以\r之后的内容会覆盖掉上次打印的内容
+
+    # 导出至excel
+    save_path = r"D:\MyRepository\toGraduate\code\sentimentAnalysis"
+    os.chdir(save_path)
+    pos_List = pd.DataFrame({'pos': pos_list})
+    pos_List.to_excel("pos_list.xlsx", index=False)
+    neg_List = pd.DataFrame({'neg': neg_list})
+    neg_List.to_excel("neg_list.xlsx", index=False)
+
+    print("\n总数：" + str(pos + neg))
+    print("积极：" + str(pos))
+    print("消极：" + str(neg))
+
+    print(neg_list)
+    # 自带分词分析结果：pos:1562 neg:289 total:1851 整个平均用时：15s
+    # 换用jieba.lcut分词结果： pos:1511 neg:340 total:1851 整个平均用时：4s
+
+    # print("1、中文分词:\n",s.words)
+    # print("2、词性标注:\n",s.tags)
+    # print("4、转换拼音:\n",s.pinyin)
+    # print("5、输出前4个关键词:\n",s.keywords(4))
+    # print("6、输出关键（中心）句:\n",s.summary(1))
+    # print("7.1、输出tf:\n",s.tf)
+    # print("7.2、输出idf:\n",s.idf)
 

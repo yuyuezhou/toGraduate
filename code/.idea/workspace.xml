@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="规范了命名">
+    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="用jieba.lcut替换了seg.seg提高速度和准确率">
+      <change afterPath="$PROJECT_DIR$/Yyz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawl/crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawl/crawl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordFrequence/wordfreq.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordFrequence/wordfreq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordCloud/wordCloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordCloud/wordCloud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651758596480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="用jieba.lcut替换了seg.seg提高速度和准确率">
+      <created>1652097929759</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652097929759</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +179,7 @@
     <MESSAGE value="增加了wordCloud文件夹，在其中完成了词云显示" />
     <MESSAGE value="初步测试了snowNLP的基本用法" />
     <MESSAGE value="规范了命名" />
-    <option name="LAST_COMMIT_MESSAGE" value="规范了命名" />
+    <MESSAGE value="用jieba.lcut替换了seg.seg提高速度和准确率" />
+    <option name="LAST_COMMIT_MESSAGE" value="用jieba.lcut替换了seg.seg提高速度和准确率" />
   </component>
 </project>
