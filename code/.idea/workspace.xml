@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="规范了命名">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordFrequence/wordfreq.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordFrequence/wordfreq.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

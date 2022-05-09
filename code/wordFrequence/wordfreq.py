@@ -61,19 +61,19 @@ word_freq.to_excel("word_freq.xlsx",index=False)
 
 print("done!")
 
-import wordcloud
-import matplotlib.pyplot as plt
-from PIL import Image
-import numpy as np
-
-
-backgroud_Image=np.array(Image.open(r'C:\Users\Yyz\Desktop\wordcloud.png'))
-    #plt.imread(r'C:\Users\Yyz\Desktop\wordcloud.png')
-word_cloud = wordcloud.WordCloud(font_path="STZHONGS.ttf",
-                      max_words=100,
-                      background_color='white',
-                      mask=backgroud_Image)
-my_wordcloud = word_cloud.fit_words(word_freq)
-plt.imshow(my_wordcloud)
-plt.axis('off')
-plt.show()
+# import wordcloud
+# import matplotlib.pyplot as plt
+# from PIL import Image
+# import numpy as np
+#
+#
+# backgroud_Image=np.array(Image.open(r'C:\Users\Yyz\Desktop\wordcloud.png'))
+#     #plt.imread(r'C:\Users\Yyz\Desktop\wordcloud.png')
+# word_cloud = wordcloud.WordCloud(font_path="STZHONGS.ttf",
+#                       max_words=100,
+#                       background_color='white',
+#                       mask=backgroud_Image)
+# my_wordcloud = word_cloud.fit_words(word_freq)
+# plt.imshow(my_wordcloud)
+# plt.axis('off')
+# plt.show()

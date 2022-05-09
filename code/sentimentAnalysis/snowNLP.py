@@ -1,29 +1,49 @@
 from snownlp import SnowNLP
-
+"""
+snownlp分析原理（个人总结，其中的贝叶斯原理及最终赋值方法还需进一步查资料）：
+1.读取已经分好类的neg.txt和pos.txt 
+    如neg.txt="不行，讨厌，一般般，糟糕，差劲，一般般"
+    pos.txt="还可以，一般般，不错，喜欢"
+2.计算每个词出现的频数
+    如neg中”一般般“出现2次，pos中”一般般“出现1次
+3.基于贝叶斯原理计算正面负面先验概率P(pos)和P(neg)
+    如对于”一般般“，P(pos)=1/4 , P(neg)=2/6=1/3
+4.对待分析文本data.txt分词 
+    如data.txt="感觉一般般" ----->  "感觉","一般般"
+5.计算每个词的后验概率p(词|neg)和p(词|pos)
+    如对于”一般般“，p("一般般"|pos)=(1/4)/(1/4+1/3)=3/7 , p("一般般”|neg)=4/7
+    上述的3/7、4/7可能计算有误（个人理解） 但思路无误
+6.选择计算出的概率较大的类别（正或负）
+    如对于“一般般”,p("一般般"|pos) < p("一般般”|neg) 故认为该词属于neg类别 赋值0 (pos则为1）
+    实际情况下，并不是只有0、1之分，而是会返回0-1中的某个数，越接近0负面性越强，越接近1则认为正面性越强
+"""
+import time
 text_path = r"D:\MyRepository\toGraduate\code\wordFrequence\1-100.txt"
 text = open(text_path,encoding='utf-8')
 line = text.readlines()
 pos=0
 neg=0
 for i in line:
-    s = SnowNLP(i)
+    s = SnowNLP(i)#用jieba.lcut替换了seg.seg
     if s.sentiments>=0.5:
         pos+=1
     else:neg+=1
-print("总数："+str(pos+neg))
+    #print("\r已经运行了"+str(time.perf_counter())+"秒",end="",flush=True)#覆盖输出
+    print("\r正在运行...已经运行了%.1f" %time.perf_counter() + "秒", end="", flush=True)  # 覆盖输出
+    print("\n中文分词:\n", s.words)
+    print("\n输出关键（中心）句:\n", s.summary(1))
+    #print("\r"+"information", end='',flush="True")  ‘\r’转义字符是将光标移到一行的开始,所以\r之后的内容会覆盖掉上次打印的内容
+print("\n总数："+str(pos+neg))
 print("积极："+str(pos))
 print("消极："+str(neg))
+#自带分词分析结果：pos:1562 neg:289 total:1851 整个平均用时：15s
+#换用jieba.lcut分词结果： pos:1511 neg:340 total:1851 整个平均用时：4s
 
 # print("1、中文分词:\n",s.words)
-#
 # print("2、词性标注:\n",s.tags)
-#
-#
-#
 # print("4、转换拼音:\n",s.pinyin)
 # print("5、输出前4个关键词:\n",s.keywords(4))
-#
 # print("6、输出关键（中心）句:\n",s.summary(1))
 # print("7.1、输出tf:\n",s.tf)
-#
 # print("7.2、输出idf:\n",s.idf)
+
