@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="用jieba.lcut替换了seg.seg提高速度和准确率">
-      <change afterPath="$PROJECT_DIR$/Yyz.py" afterDir="false" />
+    <list default="true" id="a1147563-54b4-4cdb-8e2f-70cf8ab1f8ed" name="Changes" comment="实现了正负极文本的独立保存、对所有目前已编程文件进行了整合，统一在新添加的主文件Yyz中进行调用。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawl/crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawl/crawl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yyz.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yyz.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordCloud/WordCloud.png" beforeDir="false" afterPath="$PROJECT_DIR$/wordCloud/WordCloud.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wordCloud/wordCloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordCloud/wordCloud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordFrequence/word_freq.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/wordFrequence/word_freq.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordFrequence/wordfreq.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordFrequence/wordfreq.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +44,31 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sentimentAnalysis/snowNLP.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wordFrequence/wordfreq.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.snowNLP">
+  <component name="RunManager" selected="Python.Yyz">
+    <configuration name="Yyz" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Yyz.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="snowNLP" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,11 +119,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="D:\Python\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wordfreq" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wordFrequence" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wordfreq/wordfreq.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wordFrequence/wordfreq.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,6 +135,7 @@
     <list>
       <item itemvalue="Python.wordCloud" />
       <item itemvalue="Python.snowNLP" />
+      <item itemvalue="Python.Yyz" />
       <item itemvalue="Python.wordfreq" />
     </list>
   </component>
@@ -160,7 +183,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652097929759</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="实现了正负极文本的独立了保存，对所有目前已编程文件进行了整合，统一在新添加的主文件Yyz中进行调用。">
+      <created>1652109900793</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652109900793</updated>
+    </task>
+    <task id="LOCAL-00007" summary="实现了正负极文本的独立保存、对所有目前已编程文件进行了整合，统一在新添加的主文件Yyz中进行调用。">
+      <created>1652109991486</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652109991486</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,6 +217,8 @@
     <MESSAGE value="初步测试了snowNLP的基本用法" />
     <MESSAGE value="规范了命名" />
     <MESSAGE value="用jieba.lcut替换了seg.seg提高速度和准确率" />
-    <option name="LAST_COMMIT_MESSAGE" value="用jieba.lcut替换了seg.seg提高速度和准确率" />
+    <MESSAGE value="实现了正负极文本的独立了保存，对所有目前已编程文件进行了整合，统一在新添加的主文件Yyz中进行调用。" />
+    <MESSAGE value="实现了正负极文本的独立保存、对所有目前已编程文件进行了整合，统一在新添加的主文件Yyz中进行调用。" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了正负极文本的独立保存、对所有目前已编程文件进行了整合，统一在新添加的主文件Yyz中进行调用。" />
   </component>
 </project>

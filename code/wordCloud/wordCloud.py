@@ -29,4 +29,4 @@ def show(data_path=""):
     plt.axis("off")
     plt.show()
     wc.to_file('WordCloud.png')
-    print("词云图已成功保存至当前目录")
+    print("词云图绘制成功，已保存至当前目录")
