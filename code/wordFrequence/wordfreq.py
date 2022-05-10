@@ -18,7 +18,6 @@ def get_stop_dict(stop_file):  #获取要忽略的词汇的列表（词典）
         word_list.append(c)
     return word_list
 
-
 def clean(data_path="1-100.txt"):#清洗数据
     '''
         Yyz:1.去除首行的”评论“ 2.去除每行开头的数字 3.去除完全重复的文本 4.将清洗完毕的数据重新写入文本并返回
@@ -61,59 +60,73 @@ def clean(data_path="1-100.txt"):#清洗数据
         cleaned_list.append(i[0])  # ['comment1']-->'comment1'
     return cleaned_list
 
+def cut(data_path="1-100.txt"):#分词
+    '''
+    Yyz:对传入的str数据进行分词
+    '''
+    file_path = r"D:\MyRepository\toGraduate\code\wordFrequence"
+    os.chdir(file_path)
+    user_file = "add_word_list.txt"  # 切割限制及词性读取
+    file_name = data_path #"1-100.txt"
+    text = open(file_name,encoding="utf-8").read()#读取待分析文本
+    text_lines  = text.split('\n')#列表，每个元素是源文件中的一行
+    print("正在进行分词...")
+    cutted_word_list = []
+    for line in text_lines:  # 实现按行分析
+        line_seg = psg.lcut(line)  # 全称posseg 对本行文本进行切片分词、词性标注 返回列表
+        #print(line_seg)
+        cutted_word_list_temporary=[]
+        for word_flag in line_seg:
+            word = re.sub("[^\u4e00-\u9fa5]", "", word_flag.word)
+            # /unicode编码,[\u4E00-\u9FA5]/ 汉字  ^为非，即此处为去掉非中文字符
+            cutted_word_list_temporary.append(word)
+        cutted_word_list.append(",".join(cutted_word_list_temporary))
+    #print(word_list)
+    df = pd.DataFrame({'分词结果': cutted_word_list})
+    df.to_excel('cutted_data.xlsx', index=False)
+    print("分词成功！已保存至当前目录")
+    return cutted_word_list
+
+def get_freq(data_path="1-100.txt"):#词频统计
+    file_path = r"D:\MyRepository\toGraduate\code\wordFrequence"  # 开头加r是为了防止报错，具体原因可去掉r后运行，将报错信息百度
+    # file_path = input("请输入当前文件夹路径:")
+    os.chdir(file_path)
+    # os.chdir() 方法用于改变当前工作目录到指定的路径。
+    # 后续对文件的搜索、调用、存储都是在此路径下进行
+    stop_file = "stopwordlist.txt"#含有需忽略的词汇文本
+    user_file = "add_word_list.txt"#切割限制及词性读取
+    stop_words = get_stop_dict(stop_file)#将含有需忽略的词汇文本正则处理后变为列表形式
+    #print(stop_words)
+    #file_name = input("请输入文件名字:")
+    #file_name = "1-100.txt"
+    file_name = data_path #"1-100.txt"
+    text = open(file_name,encoding="utf-8").read()#读取待分析文本
+    jieba.load_userdict(user_file)#jieba加载自定义词库 自动搜索至指定路径
+    #每行的含义是 词 词频 词性,
+    text_lines  = text.split('\n')#列表，每个元素是源文件中的一行
+    flag_list = ['vn', 'v', 'a', 'nz', 'n']  # a,形容词，v,形容词 # 'n','nz','vn','v','a'
+    counts = {}
+    print("正在进行分词...")
+    for line in text_lines:  # 实现按行分析
+        line_seg = psg.lcut(line)  # 全称posseg 对本行文本进行切片分词、词性标注 返回列表
+        # print(line_seg)
+        for word_flag in line_seg:
+            word = re.sub("[^\u4e00-\u9fa5]", "", word_flag.word)
+            # /unicode编码,[\u4E00-\u9FA5]/ 汉字  ^为非，即此处为去掉非中文字符
+            if word_flag.flag in flag_list and len(word) > 1 and word not in stop_words:
+                counts[word] = counts.get(word, 0) + 1
+                #print(word)
+                # counts.get(key, value) 返回指定键(key)的值  value选填，如果指定键的值不存在时，返回该默认值。
+    print("分词成功，正在进行词频统计")
+    word_freq = pd.DataFrame({'word':list(counts.keys()),'freq':list(counts.values())})
+    #设置二维数组  DataFrame是由多种类型的列构成的二维标签数据结构，即二维数组
+    word_freq = word_freq.sort_values(by='freq',ascending=False)
+    #设置排序 by指定根据哪一列数据进行排序，ascending=False指定降序排序
+    word_freq.to_excel("word_freq.xlsx",index=False)
+    #导出至excel index若为true则在excel中显示对应数据在原二维数组中的下标位置索引
+    #print("词频统计结束，已保存至当前目录")
 
 
-# def cut(data_path=""):#分词
-#     '''
-#     Yyz:此功能可弃
-#     '''
-#
-# def get_freq_pos_neg(pos_path="",neg_path=""):#词频统计(针对正负两极文本)
-#     '''
-#     Yyz:尚待完善
-#     '''
-
-# def get_freq_inital(data_path="1-100.txt"):#词频统计(针对原始文本）
-#     file_path = r"D:\MyRepository\toGraduate\code\wordFrequence"  # 开头加r是为了防止报错，具体原因可去掉r后运行，将报错信息百度
-#     # file_path = input("请输入当前文件夹路径:")
-#     # D:\MyRepository\toGraduate\code\NLP\wordfreq
-#     os.chdir(file_path)
-#     # os.chdir() 方法用于改变当前工作目录到指定的路径。
-#     # 后续对文件的搜索、调用、存储都是在此路径下进行
-#     stop_file = "stopwordlist.txt"#含有需忽略的词汇文本
-#     user_file = "add_word_list.txt"#切割限制及词性读取
-#     stop_words = get_stop_dict(stop_file)#将含有需忽略的词汇文本正则处理后变为列表形式
-#     #print(stop_words)
-#     #file_name = input("请输入文件名字:")
-#     #file_name = "1-100.txt"
-#     file_name = data_path #"1-100.txt"
-#     text = open(file_name,encoding="utf-8").read()#读取待分析文本
-#     jieba.load_userdict(user_file)#jieba加载自定义词库 自动搜索至指定路径
-#     #每行的含义是 词 词频 词性,
-#     text_lines  = text.split('\n')#列表，每个元素是源文件中的一行
-#     flag_list = ['vn', 'v', 'a', 'nz', 'n']  # a,形容词，v,形容词 # 'n','nz','vn','v','a'
-#     counts = {}
-#     print("正在进行分词...")
-#     for line in text_lines:  # 实现按行分析
-#         line_seg = psg.lcut(line)  # 全称posseg 对本行文本进行切片分词、词性标注 返回列表
-#         # print(line_seg)
-#         for word_flag in line_seg:
-#             word = re.sub("[^\u4e00-\u9fa5]", "", word_flag.word)
-#             # /unicode编码,[\u4E00-\u9FA5]/ 汉字  ^为非，即此处为去掉非中文字符
-#             if word_flag.flag in flag_list and len(word) > 1 and word not in stop_words:
-#                 counts[word] = counts.get(word, 0) + 1
-#                 #print(word)
-#                 # counts.get(key, value) 返回指定键(key)的值  value选填，如果指定键的值不存在时，返回该默认值。
-#     print("分词成功，正在进行词频统计")
-#     word_freq = pd.DataFrame({'word':list(counts.keys()),'freq':list(counts.values())})
-#     #设置二维数组  DataFrame是由多种类型的列构成的二维标签数据结构，即二维数组
-#     word_freq = word_freq.sort_values(by='freq',ascending=False)
-#     #设置排序 by指定根据哪一列数据进行排序，ascending=False指定降序排序
-#     word_freq.to_excel("word_freq.xlsx",index=False)
-#     #导出至excel index若为true则在excel中显示对应数据在原二维数组中的下标位置索引
-#     print("词频统计结束，已保存至当前目录")
-#
-#
 
 #print("done!")
 

@@ -1,5 +1,6 @@
 '''
-Yyz:此模块用于实现对文本的情感分析
+Yyz:此模块用于实现对文本的情感分析,将文本划分为正负两极
+目前准确度感觉有点问题
 '''
 import time
 import re
@@ -24,24 +25,25 @@ snownlp分析原理（个人总结，其中的贝叶斯原理及最终赋值方�
     如对于“一般般”,p("一般般"|pos) < p("一般般”|neg) 故认为该词属于neg类别 赋值0 (pos则为1）
     实际情况下，并不是只有0、1之分，而是会返回0-1中的某个数，越接近0负面性越强，越接近1则认为正面性越强
 """
+from wordFrequence import wordfreq
 
 def sentimentAnalysis(data_cutted=""):
-    text_path = r"D:\MyRepository\toGraduate\code\wordFrequence\1-100.txt"
-    text = open(text_path, encoding='utf-8')
-    line = text.readlines()
+    text_path = r"D:\MyRepository\toGraduate\code\wordFrequence\cleaned_data.xlsx"
+    text = pd.read_excel(text_path)
+    df = pd.DataFrame(text)
     pos = 0
     neg = 0
     pos_list = []
     neg_list = []
-    for i in line:
-        s = SnowNLP(i)  # 用jieba.lcut替换了seg.seg
+    for row in df.iterrows():
+        s = SnowNLP((row[1].values[0]))  # 用jieba.lcut替换了seg.seg
         if s.sentiments >= 0.5:
             pos += 1
-            pos_list.append(re.sub("\n |\t", "", i))
+            pos_list.append(re.sub("\n |\t", "", (row[1].values[0])))
         else:
             neg += 1
             # neg_list.append(re.sub("[^\u4e00-\u9fa5]", "", i))
-            neg_list.append(re.sub("\n|\t", "", i))
+            neg_list.append(re.sub("\n|\t", "", (row[1].values[0])))
         # print("\r已经运行了"+str(time.perf_counter())+"秒",end="",flush=True)#覆盖输出
         print("\r正在运行...已经运行了%.1f" % time.perf_counter() + "秒", end="", flush=True)  # 覆盖输出
         # print("\r"+"information", end='',flush="True")  ‘\r’转义字符是将光标移到一行的开始,所以\r之后的内容会覆盖掉上次打印的内容
@@ -58,10 +60,9 @@ def sentimentAnalysis(data_cutted=""):
     print("积极：" + str(pos))
     print("消极：" + str(neg))
 
-    print(neg_list)
+    print("情感分析完成")
     # 自带分词分析结果：pos:1562 neg:289 total:1851 整个平均用时：15s
     # 换用jieba.lcut分词结果： pos:1511 neg:340 total:1851 整个平均用时：4s
-
     # print("1、中文分词:\n",s.words)
     # print("2、词性标注:\n",s.tags)
     # print("4、转换拼音:\n",s.pinyin)
@@ -70,3 +71,5 @@ def sentimentAnalysis(data_cutted=""):
     # print("7.1、输出tf:\n",s.tf)
     # print("7.2、输出idf:\n",s.idf)
 
+
+#sentimentAnalysis()

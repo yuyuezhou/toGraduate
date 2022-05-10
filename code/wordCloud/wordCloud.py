@@ -8,9 +8,9 @@ from PIL import Image,ImageSequence
 import numpy as np
 from wordcloud import ImageColorGenerator,WordCloud
 
-def show(data_path=""):
+def show(data_path="word_freq.xlsx"):
     os.chdir(r"D:\MyRepository\toGraduate\code\wordFrequence")
-    wordfreq = pd.read_excel("word_freq.xlsx")
+    wordfreq = pd.read_excel(data_path)
     os.chdir(r"D:\MyRepository\toGraduate\code\wordCloud")
     font_path = r'c:\\windows\\Fonts\\simhei.ttf'  # 字体路径
     backgroud_image = Image.open("PC.jpg")  # 将文件中的图像读取到数组中
@@ -29,4 +29,4 @@ def show(data_path=""):
     plt.axis("off")
     plt.show()
     wc.to_file('WordCloud.png')
-    print("词云图绘制成功，已保存至当前目录")
+    print("词云图已保存至当前目录")

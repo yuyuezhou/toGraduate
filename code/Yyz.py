@@ -17,16 +17,14 @@ def saveInitalData(data_list):#保存爬取到的数据至本地 data_list为列
 def cleanData(data_path='1-100.txt'):#清洗数据 data_path为数据本地保存路径
     return wordfreq.clean(data_path)
 
-def cutWord(data_path):#分词
+def cutWord(data_path="1-100.txt"):#分词
     return wordfreq.cut(data_path)
 
-def getFreqInital(data_cutted):#词频统计（初始数据）
-    wordfreq.get_freq_inital(data_cutted)
+def getFreq(data_cutted="1-100.txt"):#词频统计
+    #wordfreq.get_freq_inital(data_cutted)
+    wordfreq.get_freq(data_cutted)
 
-def getFreqPosNeg(pos_path,neg_path):#词频统计(针对正负两极文本)
-    wordfreq.get_freq_pos_neg(pos_path,neg_path)
-
-def getWordCloud(data_path):#词云图
+def getWordCloud(data_path="word_freq.xlsx"):#词云图
     wordCloud.show(data_path)
 
 def sentimentAnalysis(data_cutted):#情感分析
@@ -48,11 +46,11 @@ useLDA()
 '''
 while True:
     print("--------------------------------------------------------")
-    print("0.退出 1.爬取数据 2.清洗数据 3.原始数据分词 4.初始数据词频统计")
-    print("5.正负两极文本词频统计 6.词云图绘制 7.情感分析 8.LDA主题分析")
+    print("1.爬取数据 2.清洗数据 3.原始数据分词 4.词频统计")
+    print("5.词云图绘制 6.情感分析 7.LDA主题分析 8.退出")
     print("--------------------------------------------------------")
     num = int(input("请输入指令: "))
-    if num == 0:#OK
+    if num == 8:#OK
         print("结束运行\n")
         break
     if num == 1:#OK
@@ -64,15 +62,20 @@ while True:
     if num == 2:#OK
         cleaned_data_list = cleanData()
         print(cleaned_data_list)
-    if num == 3:
-        '''...'''
+    if num == 3:#OK
+        cutted_word_list = cutWord()
+        #print(cutted_word_list)
     if num == 4:
-        getFreqInital("1-100.txt")
-    if num == 5:
-        '''...'''
-    if num == 6:
-        getWordCloud("")
+        getFreq()
+        print("词频统计结束，已保存至当前目录")
+    if num == 5:#OK
+        print("正在绘制词云图...")
+        getWordCloud()
+    if num == 6:#OK
+        '''
+        Yyz:准确率可能有问题
+        '''
+        print("正在对文本进行情感分析...")
+        sentimentAnalysis("")
     if num == 7:
-        '''...'''
-    if num == 8:
         '''...'''
