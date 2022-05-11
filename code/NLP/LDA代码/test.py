@@ -1,3 +1,6 @@
+'''
+Yyz:用于去除每行开头数字和正文之间的\t占位符
+'''
 import os
 import pandas as pd
 import re

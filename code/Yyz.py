@@ -65,7 +65,7 @@ while True:
     if num == 3:#OK
         cutted_word_list = cutWord()
         #print(cutted_word_list)
-    if num == 4:
+    if num == 4:#OK
         getFreq()
         print("词频统计结束，已保存至当前目录")
     if num == 5:#OK
