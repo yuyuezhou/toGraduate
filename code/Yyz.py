@@ -1,7 +1,8 @@
-from crawl import crawl
-from sentimentAnalysis import snowNLP
-from wordCloud import wordCloud
-from wordFrequence import wordfreq
+from getData import crawl
+from processData import snowNLP,wordCloud,wordfreq
+#from analyzeData import lda
+
+
 '''
 所需功能函数：
 爬取数据、存储到本地、数据清洗、分词、词频统计、情感分析、词云图、LDA分析主题
