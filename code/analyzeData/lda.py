@@ -9,9 +9,11 @@ import jieba.posseg as psg
 
 output_path = r'D:\MyRepository\toGraduate\Data\LDA数据\result' #主题结果的存放位置
 file_path = r'D:\MyRepository\toGraduate\Data\LDA数据\data' #文本数据的位置
+#file_path = r"D:\MyRepository\toGraduate\Data\爬虫数据\八爪-京东笔记本电脑评论"
 os.chdir(file_path)
 # data=pd.read_excel("data.xlsx")#content type
-data = pd.read_excel("dataOfPC.xlsx")#读取文本。这些文本事先应已经过清洗，但未分词。
+#data = pd.read_excel("dataOfPC.xlsx")#读取文本。这些文本事先应已经过清洗，但未分词。
+data = pd.read_excel("1-10.xlsx")
 os.chdir(output_path)
 dic_file = r"D:\MyRepository\toGraduate\Data\LDA数据\dict.txt"#自编词典的存放位置
 stop_file = r"D:\MyRepository\toGraduate\Data\LDA数据\stopwords.txt"#忽略词的存放位置
@@ -30,7 +32,7 @@ def chinese_word_cut(mytext):#中文分词
     stop_list = []#获取可用的忽略词列表
     flag_list = ['n','nz','vn']#标注想获取什么样词性的词语
     for line in stopword_list:
-        line = re.sub(u'\n|\\r', '', line)#将回车和空格去掉
+        line = re.sub(u'\n|\\r', '', line)
         #前缀u表示后面字符串以 Unicode 格式 进行编码，一般用在中文字符串前面
         #防止因为源码储存格式问题，导致再次使用时出现乱码
         stop_list.append(line)#获取可用的忽略词列表
@@ -60,13 +62,13 @@ data["content_cutted"] = data.content.apply(chinese_word_cut)
 print(data)
 '''
 
-
+print("star")
 #######LDA分析
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 
 stopList=[] #含有停用词的列表 由于先前分词的操作已经去除了停用词，此处可以为空
-n_features = 150 #设置要从所有文章中提取出1000个特征词语（关键词）。
+n_features = 1000 #设置要从所有文章中提取出1000个特征词语（关键词）。
 '''
 Yyz: 对‘特征词语’的理解：在若干文章(为便于理解，默认>1)中，某个词语不仅在文章a中出现，也在文章b/c/f/z...中出现
      即该词语不仅仅只在一篇文章中出现，则可认为该词语的含义可能对这若干文章的主题有影响作用
@@ -93,7 +95,7 @@ print(tf.toarray()) #如第n个[]为[0 2 0],意为：在第n个文章里，编�
 print(tf_vectorizer.vocabulary_)#所有关键词都存放在这里，个数为n_features，形式dict:'关键词','编号' 编号范围[0,总个数-1]
 '''
 
-n_topics = 3 #设定主题个数
+n_topics = 5 #设定主题个数
 lda = LatentDirichletAllocation(n_components=n_topics,
                                 max_iter=50,#max_iter ：EM算法的最大迭代次数。
                                 learning_method='batch',#即LDA的求解算法。 batch:批处理

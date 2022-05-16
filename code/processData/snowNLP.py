@@ -29,6 +29,7 @@ from processData import wordfreq
 
 def sentimentAnalysis(data_cutted=""):
     text_path = r"D:\MyRepository\toGraduate\Data\数据处理数据\cleaned_data.xlsx"
+    #text_path = r"D:\MyRepository\toGraduate\Data\爬虫数据\八爪-京东笔记本电脑评论\1-10.xlsx"
     text = pd.read_excel(text_path)
     df = pd.DataFrame(text)
     pos = 0

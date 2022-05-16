@@ -19,17 +19,17 @@
 4.得出该商品的用户购买原因和用途
 
 
-
-
 代码文件结构：
 
     Code:--->代码
-        getData：
-            crawl.py --->爬虫获取原始评论数据
-        processData：
-            process_data.py --->对原始数据进行清洗、分词、词频统计、词云图绘制、情感分析
-        analyzeData：
-            analyze_data.py --->对分好词的数据进行LDA主题分析
+        getData:
+            crawl.getData()负责数据的爬取以及本地保存
+        processData:
+            process.clean()首先将数据去重，然后进行分词，继而去除停用词、特殊符号、非中文字符等，将清洗后结果以xlsx形式保存(1.去重版 2.去重且分好词版)
+            process.show()读取由clean()分好词得到的文件，进行词频统计并保存至本地(.xlsx),然后进行词云图的绘制以增强可读性。出现频次越大，词云图中对应词汇的显示应该更大
+        analyzeData:
+            analyze.senti()读取由clean()去完重的文件，进行情感分析。（考虑更新语料库、如何跳过其自身的分词，直接用之前自己分好词的文件）
+            analyze.lda()读取由clean()分好词得到的文件，进行LDA主题分析。
         Yyz.py ---->统一在此进行各文件的调用
     Data:--->数据
         

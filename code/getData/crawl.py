@@ -4,7 +4,7 @@ Yyz: 本模块用于爬取指定电商平台的商品评论
 import requests
 import re
 import time
-
+import pandas as pd
 # 临时保存
 texts = []
 
@@ -39,19 +39,11 @@ def getData(data_url=""): #参数可去
         print('爬完了第' + str(n) + '页')
     #print(texts)
     print("爬取成功！")
-    return texts
-
-def save_toexcel(data_list):
-    # 本地文件保存
-    import xlwt
-    import pandas as pd
     # 创建一个空的数据表
     df = pd.DataFrame();
     # 创建一个列 此列的每行都是texts列表中的一个元素
-    df['评论'] = texts
+    df['contents'] = texts
     #print(df)
     # 存为excel
     df.to_excel(r'D:\MyRepository\toGraduate\Data\爬虫数据\淘宝笔记本电脑评论数据90-100页.xls')
-    # 存为csv
-    # df.to_csv('F:\ToGraduate\Data\淘宝微波炉评论数据\淘宝微波炉评论数据final.csv',encoding='utf-8')
     print("保存成功！")
