@@ -15,8 +15,8 @@ def crawlInitalData(data_url):#爬取数据 data_url为待爬取网站的网址
 def cleanData():#清洗数据 data_path为数据本地保存路径
     return process.clean()
 
-def showData():#词频统计、词云图
-    process.show()
+def showData_1():#词频统计、词云图
+    process.show_1()
 
 def sentimentAnalysis():#情感分析
     analyze.senti()
@@ -24,21 +24,13 @@ def sentimentAnalysis():#情感分析
 def useLDA():#LDA主题分析
     analyze.lda()
 
-'''
+def showData_2():
+    process.show_2()
 
-crawlInitalData()
-saveInitalData()
-cleanData()
-cutWord()
-getWordFreq()
-wordCloud()
-sentimentAnalysis()
-useLDA()
-'''
 while True:
     print("--------------------------------------------------------")
     print("0.退出 1.爬取数据 2.数据去重、分词(数据预处理) ")
-    print("3.词频统计、绘制词云图 4.情感分析 5.LDA主题分析")
+    print("3.词频统计、绘制词云图 4.情感分析 5.分别统计正负词频、绘制词云图 6.LDA主题分析")
     print("--------------------------------------------------------")
     num = int(input("请输入指令: "))
     if num == 0:#OK
@@ -52,11 +44,11 @@ while True:
         print("爬取到的数据已成功保存至当前目录")
     if num == 2:#OK
         cleanData()
-        #print(cleaned_data_list)
     if num == 3:#OK
-        showData()
-        #print(cutted_word_list)
+        showData_1()
     if num == 4:#OK
         sentimentAnalysis()
-    if num == 5:#OK
+    if num==5:
+        showData_2()
+    if num == 6:#OK
         useLDA()
